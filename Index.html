@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale" />
+    <title>
+        Calculator Website
+    </title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: border-box;
+        }
+        body {
+            font-family: 'Times New Roman';
+            background: indigo;
+        }
+        .center {
+            text-align: center;
+        }
+        .container {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            height: 20%;
+            padding: 30px 30px;
+            position: absolute;
+            top: 40%;
+            right: 25%;
+            border-radius: 20px;
+        }
+        .button {
+            padding: 20px;
+            margin: 0px 0px;
+            border: 3px solid black;
+            border-radius: 5px;
+            width: 150px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #4ddaf0;
+        }
+        .row {
+            margin: 8px 0;
+        }
+        .row input {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px 10px;
+            width: 615px;
+            height: 80px;
+            border: 3px solid black;
+            border-radius: 5px;
+            background-color: #7aa7f0;
+        }
+        .container1 {
+            border: 2px solid black;
+            width: 800px;
+            padding: 10px 5px;
+            margin-bottom: 50px;
+            background-color: #4ddaf0;
+        }
+        .container2 {
+            border: 2px solid black;
+            width: 620px;
+            padding: 30px 50px;
+            background-color: #e7a5f2;
+        }
+        .heading {
+            color: black;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container1">
+            <div class="heading">
+                Calculator using HTML, CSS & JS
+            </div>
+        </div>
+        <div class="container2">
+            <div class="row">
+                <input type="text" name="" class="row" value="" />
+            </div>
+            <div class="row">
+                <button type="submit" class="button">C</button>
+                <button type="submit" class="button">%</button>
+                <button type="submit" class="button">(</button>
+                <button type="submit" class="button">)</button>
+            </div>
+            <div class="row">
+                <button type="submit" class="button">7</button>
+                <button type="submit" class="button">8</button>
+                <button type="submit" class="button">9</button>
+                <button type="submit" class="button">*</button>
+            </div>
+            <div class="row">
+                <button type="submit" class="button">4</button>
+                <button type="submit" class="button">5</button>
+                <button type="submit" class="button">6</button>
+                <button type="submit" class="button">/</button>
+            </div>
+            <div class="row">
+                <button type="submit" class="button">1</button>
+                <button type="submit" class="button">2</button>
+                <button type="submit" class="button">3</button>
+                <button type="submit" class="button">+</button>
+            </div>
+            <div class="row">
+                <button type="submit" class="button">0</button>
+                <button type="submit" class="button">.</button>
+                <button type="submit" class="button">=</button>
+                <button type="submit" class="button">-</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let string = "";
+        let buttons = document.querySelectorAll('.button');
+        Array.from(buttons).forEach((button)=> {
+            button.addEventListener('click', (e)=> {
+                if (e.target.innerHTML == '=') {
+                    string = eval(string);
+                    document.querySelector('input').value = string;
+                } else if (e.target.innerHTML == 'C') {
+                    string = ""
+                    document.querySelector('input').value = string;
+                } else {
+                    console.log(e.target)
+                    string = string + e.target.innerHTML;
+                    document.querySelector('input').value = string;
+                }
+            })
+        })
+    </script>
+    <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+</html>
